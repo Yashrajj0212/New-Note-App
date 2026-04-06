@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center h-screen text-white">
+
+<div class="bg-gray-900 p-8 rounded-2xl shadow-2xl w-80 border border-gray-700">
+
+    <h2 class="text-2xl font-bold text-center mb-6">Welcome Back 👋</h2>
+
+    <!-- FLASH MESSAGE -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="bg-green-500 text-white text-sm p-2 rounded mb-4 text-center">
+            {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" class="space-y-4">
+        <input type="text" name="username" placeholder="Username"
+            class="w-full p-2 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required>
+
+        <input type="password" name="password" placeholder="Password"
+            class="w-full p-2 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required>
+
+        <button type="submit"
+            class="w-full bg-blue-600 py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+            Login
+        </button>
+    </form>
+
+    <p class="text-center mt-4 text-sm text-gray-400">
+        Don't have an account?
+        <a href="/signup" class="text-blue-400 hover:underline">Signup</a>
+    </p>
+
+</div>
+
+</body>
+</html>
